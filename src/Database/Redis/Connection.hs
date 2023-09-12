@@ -59,6 +59,11 @@ data Connection
     = NonClusteredConnection (Pool PP.Connection)
     | ClusteredConnection (MVar ShardMap) (Pool Cluster.Connection)
 
+-- |Is this a clustered connection?
+isClustered :: Connection -> Bool
+isClustered (ClusteredConnection{}) = True
+isClustered _ = False
+
 -- |Information for connnecting to a Redis server.
 --
 -- It is recommended to not use the 'ConnInfo' data constructor directly.

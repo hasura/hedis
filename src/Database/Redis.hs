@@ -163,6 +163,7 @@ module Database.Redis (
 
     -- * Connection
     Connection, ConnectError(..), connect, checkedConnect, disconnect,
+    isClustered,
     withConnect, withCheckedConnect,
     ConnectInfo(..), defaultConnectInfo, parseConnectInfo, connectCluster,
     PortID(..),
@@ -198,6 +199,7 @@ import Database.Redis.Core
 import Database.Redis.Connection
     ( runRedis
     , connectCluster
+    , isClustered
     , defaultConnectInfo
     , ConnectInfo(..)
     , disconnect
